@@ -1,0 +1,150 @@
+.footer {
+  background: var(--color-bg-section);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-2xl);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+/* Brand */
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-sm);
+}
+
+.logoImg {
+  border-radius: 6px;
+  filter: invert(1);
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.brandSub {
+  font-size: 0.72rem;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+  max-width: 320px;
+}
+
+.socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-card);
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+  border: 1px solid var(--color-border);
+}
+
+.socialLink:hover {
+  color: var(--color-gold);
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+}
+
+/* Columns */
+.colTitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
+  margin-bottom: var(--space-md);
+  font-weight: 700;
+}
+
+.links li {
+  margin-bottom: 0.6rem;
+}
+
+.links a {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  transition: color var(--transition-fast);
+}
+
+.links a:hover {
+  color: var(--color-white);
+}
+
+/* Contact List */
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.contactList li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-gold);
+}
+
+.contactList a {
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.contactList a:hover {
+  color: var(--color-gold);
+}
+
+/* Bottom */
+.bottom {
+  margin-top: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-md) 0;
+}
+
+.bottomInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.bottomRight {
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .bottomInner {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}

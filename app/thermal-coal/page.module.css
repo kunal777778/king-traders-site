@@ -1,0 +1,223 @@
+/* Page Hero with background image */
+.pageHero {
+  position: relative;
+  padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-xl);
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+}
+
+.heroBgImg {
+  object-fit: cover;
+  filter: brightness(0.25) saturate(0.6);
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(13, 13, 20, 0.5) 0%, rgba(13, 13, 20, 0.95) 100%);
+}
+
+.pageHero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.heroDesc {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ========== SPECIFICATIONS ========== */
+.specsSection {
+  background: var(--color-bg-section);
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.specsDesc {
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.specsImage {
+  margin-top: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.specsImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.specsTable {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.specsTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specsTable th {
+  background: rgba(212, 168, 67, 0.08);
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.specsTable td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.specsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.highlightRow {
+  background: rgba(212, 168, 67, 0.04);
+}
+
+.highlightVal {
+  color: var(--color-gold) !important;
+  font-weight: 600;
+}
+
+.tableNote {
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ========== ADVANTAGES ========== */
+.advantagesList {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.advantageItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-xs);
+  font-size: 0.98rem;
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+}
+
+.advantageItem:hover {
+  border-color: var(--color-border-hover);
+  background: var(--color-bg-card-hover);
+}
+
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-gold);
+}
+
+/* ========== APPLICATIONS ========== */
+.applicationsSection {
+  background: var(--color-bg-section);
+}
+
+.appCard {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.appIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.appCard h4 {
+  margin-bottom: var(--space-xs);
+}
+
+.appCard p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0 auto;
+}
+
+/* ========== CTA ========== */
+.ctaSection {
+  position: relative;
+}
+
+.ctaContent {
+  text-align: center;
+}
+
+.ctaContent h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.ctaContent > p {
+  margin: 0 auto var(--space-lg);
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 550px;
+}
+
+.ctaBtns {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 868px) {
+  .specsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageHero {
+    text-align: center;
+  }
+  .heroDesc {
+    margin: 0 auto;
+  }
+}

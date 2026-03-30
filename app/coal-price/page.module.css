@@ -1,0 +1,168 @@
+/* Page Hero */
+.pageHero {
+  position: relative;
+  padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-xl);
+  overflow: hidden;
+}
+
+.heroGlow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, transparent 70%);
+  top: -150px;
+  right: -100px;
+}
+
+.heroDesc {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ========== PRICING CARD ========== */
+.pricingSection {
+  background: var(--color-bg-section);
+}
+
+.pricingCard {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.pricingIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(212, 168, 67, 0.1);
+  color: var(--color-gold);
+  margin-bottom: var(--space-md);
+}
+
+.pricingCard h2 {
+  margin-bottom: var(--space-xs);
+}
+
+.pricingText {
+  margin: var(--space-md) auto var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 550px;
+}
+
+.pricingBtns {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ========== FACTORS ========== */
+.factorsSection {
+  background: var(--color-bg-dark);
+}
+
+.factorCard {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.factorIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.factorCard h4 {
+  margin-bottom: var(--space-xs);
+}
+
+.factorCard p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0 auto;
+}
+
+/* ========== GRADE TABLE ========== */
+.gradeTable {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.gradeTable table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.gradeTable th {
+  background: rgba(212, 168, 67, 0.08);
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.gradeTable td {
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.goldVal {
+  color: var(--color-gold) !important;
+  font-weight: 600;
+}
+
+.onRequest {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--color-gold);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.gradeNote {
+  text-align: center;
+  margin-top: var(--space-md);
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+  .pageHero {
+    text-align: center;
+  }
+  .heroDesc {
+    margin: 0 auto;
+  }
+  .pricingCard {
+    padding: var(--space-xl) var(--space-md);
+  }
+}
