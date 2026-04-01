@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import HeroClient from '@/components/HeroClient';
+import CountUp from '@/components/CountUp';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -129,6 +130,9 @@ export default function HomePage() {
       {/* ========== HERO ========== */}
       <HeroClient />
 
+      {/* Divider */}
+      <div className={styles.sectionDivider} />
+
       {/* ========== SERVICES ========== */}
       <section className={`section ${styles.servicesSection}`}>
         <div className={styles.sectionGlow} />
@@ -156,6 +160,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className={styles.sectionDivider} />
 
       {/* ========== ABOUT PREVIEW ========== */}
       <section className={`section ${styles.aboutSection}`}>
@@ -194,17 +201,17 @@ export default function HomePage() {
                 </p>
                 <div className={styles.aboutStats}>
                   <div className={styles.aboutStat}>
-                    <span className={styles.aboutStatNum}>30+</span>
+                    <span className={styles.aboutStatNum}><CountUp value="30+" duration={1600} /></span>
                     <span className={styles.aboutStatLabel}>Happy Clients</span>
                   </div>
                   <div className={styles.aboutStatDivider} />
                   <div className={styles.aboutStat}>
-                    <span className={styles.aboutStatNum}>6900+</span>
+                    <span className={styles.aboutStatNum}><CountUp value="6900+" duration={2000} /></span>
                     <span className={styles.aboutStatLabel}>GCV NAR</span>
                   </div>
                   <div className={styles.aboutStatDivider} />
                   <div className={styles.aboutStat}>
-                    <span className={styles.aboutStatNum}>24/7</span>
+                    <span className={styles.aboutStatNum}><CountUp value="24/7" /></span>
                     <span className={styles.aboutStatLabel}>Support</span>
                   </div>
                 </div>
@@ -217,6 +224,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className={styles.sectionDivider} />
 
       {/* ========== COAL SHOWCASE ========== */}
       <section className={`section ${styles.showcaseSection}`}>

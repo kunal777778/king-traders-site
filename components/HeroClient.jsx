@@ -1,18 +1,44 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import CountUp from '@/components/CountUp';
 import styles from '@/app/page.module.css';
 
+const FULL_TEXT =
+  'Premium imported coal for brick kilns and industrial buyers across Nepal. Delivering quality, reliability, and competitive pricing for over 7 years.';
+
 const stats = [
-  { number: '7+', label: 'Years in Business' },
-  { number: '30+', label: 'Clients Served' },
+  { number: '7+',   label: 'Years in Business' },
+  { number: '30+',  label: 'Clients Served' },
   { number: '6900+', label: 'GCV NAR' },
   { number: '24/7', label: 'Customer Support' },
 ];
 
 export default function HeroClient() {
+  const [typed, setTyped] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+
+  // Typewriter: starts after 0.9s (hero title has appeared by then)
+  useEffect(() => {
+    let i = 0;
+    const delay = setTimeout(() => {
+      const interval = setInterval(() => {
+        i++;
+        setTyped(FULL_TEXT.slice(0, i));
+        if (i >= FULL_TEXT.length) {
+          clearInterval(interval);
+          // Hide cursor 1.5s after typing completes
+          setTimeout(() => setShowCursor(false), 1500);
+        }
+      }, 14);
+      return () => clearInterval(interval);
+    }, 900);
+    return () => clearTimeout(delay);
+  }, []);
+
   return (
     <section className={styles.hero}>
       <div className={styles.heroBg}>
@@ -48,14 +74,19 @@ export default function HeroClient() {
             Nepal&apos;s Trusted
             <span className="gradient-text"> Coal Partner</span>
           </h1>
+
+          {/* Typewriter description */}
           <p className={styles.heroDesc}>
-            Premium imported coal for brick kilns and industrial buyers across Nepal.
-            Delivering quality, reliability, and competitive pricing for over 7 years.
+            {typed}
+            {showCursor && <span className={styles.cursor}>|</span>}
           </p>
+
           <div className={styles.heroBtns}>
             <Link href="/contact" className="btn btn-primary">
               Request a Quote
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </Link>
             <Link href="/thermal-coal" className="btn btn-outline">
               View Products
@@ -86,7 +117,7 @@ export default function HeroClient() {
         </motion.div>
       </div>
 
-      {/* Floating stat badges */}
+      {/* Stat cards with CountUp */}
       <div className={`container ${styles.heroStats}`}>
         {stats.map((stat, i) => (
           <motion.div
@@ -96,7 +127,9 @@ export default function HeroClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
           >
-            <span className={styles.statNumber}>{stat.number}</span>
+            <span className={styles.statNumber}>
+              <CountUp value={stat.number} duration={1600} />
+            </span>
             <span className={styles.statLabel}>{stat.label}</span>
           </motion.div>
         ))}
