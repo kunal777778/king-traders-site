@@ -1,15 +1,9 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from '@/app/page.module.css';
-
-const CoalScene3D = dynamic(() => import('@/components/CoalScene3D'), {
-  ssr: false,
-  loading: () => <div className={styles.scene3dPlaceholder} />,
-});
 
 const stats = [
   { number: '7+', label: 'Years in Business' },
@@ -27,9 +21,19 @@ export default function HeroClient() {
         <div className={styles.heroGrid} />
       </div>
 
-      {/* 3D scene as immersive background */}
-      <div className={styles.scene3dBg}>
-        <CoalScene3D className={styles.coalScene} />
+      {/* Video background */}
+      <div className={styles.videoBg}>
+        <video
+          className={styles.heroBgVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src="/coal-hero.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.videoOverlay} />
       </div>
 
       <div className={`container ${styles.heroContent}`}>
