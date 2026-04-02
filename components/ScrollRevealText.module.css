@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.32em;
+  align-items: baseline;
+}
+
+.word {
+  display: inline-block;
+  will-change: opacity, color;
+}

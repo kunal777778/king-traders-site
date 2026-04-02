@@ -153,6 +153,15 @@
   overflow: hidden;
 }
 
+.videoParallaxWrap {
+  width: 100%;
+  height: 120%; /* extra height so upward drift doesn't reveal edges */
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
 .heroBgVideo {
   width: 100%;
   height: 100%;

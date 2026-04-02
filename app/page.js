@@ -3,6 +3,8 @@ import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import HeroClient from '@/components/HeroClient';
 import CountUp from '@/components/CountUp';
+import ScrollRevealText from '@/components/ScrollRevealText';
+import StickyProcess from '@/components/StickyProcess';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -140,7 +142,7 @@ export default function HomePage() {
           <AnimatedSection>
             <div className="section-header">
               <div className="badge">Why Choose Us</div>
-              <h2>Built on Trust,<br />Delivered with Excellence</h2>
+              <ScrollRevealText text="Built on Trust, Delivered with Excellence" />
               <div className="gold-line" />
               <p>From sourcing to delivery, we maintain the highest standards at every step</p>
             </div>
@@ -285,13 +287,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ========== HOW WE WORK (sticky scroll) ========== */}
+      <StickyProcess />
+
       {/* ========== INDUSTRIES ========== */}
       <section className={`section ${styles.industriesSection}`}>
         <div className="container">
           <AnimatedSection>
             <div className="section-header">
               <div className="badge">Industries We Serve</div>
-              <h2>Powering Nepal&apos;s Key Industries</h2>
+              <ScrollRevealText text="Powering Nepal's Key Industries" />
               <div className="gold-line" />
               <p>Supplying reliable coal to the sectors that keep Nepal moving</p>
             </div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import CountUp from '@/components/CountUp';
 import styles from '@/app/page.module.css';
 
@@ -20,6 +20,10 @@ const stats = [
 export default function HeroClient() {
   const [typed, setTyped] = useState('');
   const [showCursor, setShowCursor] = useState(true);
+
+  // Parallax: video drifts upward slower than the page scroll
+  const { scrollY } = useScroll();
+  const videoY = useTransform(scrollY, [0, 700], ['0%', '-18%']);
 
   // Typewriter: starts after 0.9s (hero title has appeared by then)
   useEffect(() => {
@@ -47,18 +51,20 @@ export default function HeroClient() {
         <div className={styles.heroGrid} />
       </div>
 
-      {/* Video background */}
+      {/* Video background with parallax */}
       <div className={styles.videoBg}>
-        <video
-          className={styles.heroBgVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        >
-          <source src="/coal-hero.mp4" type="video/mp4" />
-        </video>
+        <motion.div style={{ y: videoY }} className={styles.videoParallaxWrap}>
+          <video
+            className={styles.heroBgVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/coal-hero.mp4" type="video/mp4" />
+          </video>
+        </motion.div>
         <div className={styles.videoOverlay} />
       </div>
 
