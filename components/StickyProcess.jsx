@@ -83,6 +83,9 @@ export default function StickyProcess() {
           <div className="badge">How We Work</div>
         </div>
 
+        {/* Big faded number — outside AnimatePresence so it doesn't bleed outside sticky */}
+        <div className={styles.bgNum} aria-hidden="true">{step.num}</div>
+
         {/* Step content — AnimatePresence mode="wait" ensures only ONE step renders at a time */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -93,7 +96,6 @@ export default function StickyProcess() {
             exit={{ opacity: 0, y: -28 }}
             transition={{ duration: 0.38, ease: [0.4, 0, 0.2, 1] }}
           >
-            <div className={styles.bgNum} aria-hidden="true">{step.num}</div>
             <p className={styles.stepLabel}>{step.label}</p>
             <div className={styles.iconRing}>{step.icon}</div>
             <h2 className={styles.stepTitle}>{step.title}</h2>

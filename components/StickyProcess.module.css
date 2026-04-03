@@ -39,7 +39,7 @@
 }
 
 .bgNum {
-  position: fixed;
+  position: absolute;
   font-size: clamp(18vw, 28vw, 380px);
   font-weight: 900;
   font-family: var(--font-heading);
