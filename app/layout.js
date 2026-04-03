@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ScrollProgress from '@/components/ScrollProgress';
 import PageTransition from '@/components/PageTransition';
-import Particles from '@/components/Particles';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -200,7 +199,6 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ScrollProgress />
-        <Particles />
         <Navbar />
         <PageTransition>
           <main>{children}</main>
