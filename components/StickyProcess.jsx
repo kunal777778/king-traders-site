@@ -71,15 +71,17 @@ function ProcessStep({ step, progress, index, total }) {
   const end = (index + 1) / total;
   const isLast = index === total - 1;
 
+  // Each step fades in quickly at `start`, stays visible, then fades out completely
+  // by `end` before the next step begins — no overlap between steps
   const opacity = useTransform(
     progress,
-    [Math.max(0, start - 0.04), start + 0.06, isLast ? 1 : end - 0.06, isLast ? 1 : end],
+    [start, start + 0.06, isLast ? 1 : end - 0.06, isLast ? 1 : end],
     [0, 1, 1, isLast ? 1 : 0]
   );
   const y = useTransform(
     progress,
-    [Math.max(0, start - 0.04), start + 0.08],
-    [60, 0]
+    [start, start + 0.07],
+    [55, 0]
   );
 
   return (

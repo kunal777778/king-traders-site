@@ -1,7 +1,7 @@
 .field {
   position: fixed;
   inset: 0;
-  z-index: 2; /* above section backgrounds, below all content */
+  z-index: 2;
   pointer-events: none;
   overflow: hidden;
 }
@@ -9,27 +9,19 @@
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 168, 67, 1) 0%, rgba(212, 168, 67, 0.3) 60%, transparent 100%);
-  mix-blend-mode: screen; /* blends through text/content naturally */
+  /* No mix-blend-mode — screen is invisible on dark backgrounds */
+  /* No opacity in keyframes — inline style controls it */
+  background: radial-gradient(circle, #f0c84a 0%, rgba(212, 168, 67, 0.6) 50%, transparent 100%);
   animation: drift linear infinite;
   will-change: transform;
 }
 
+/* Pure translation loop — opacity stays at whatever inline style sets */
 @keyframes drift {
-  0% {
-    transform: translateY(0px) translateX(0px);
-    opacity: var(--op, 0.12);
-  }
-  33% {
-    transform: translateY(-25px) translateX(10px);
-    opacity: calc(var(--op, 0.12) * 1.4);
-  }
-  66% {
-    transform: translateY(-50px) translateX(-6px);
-    opacity: calc(var(--op, 0.12) * 0.8);
-  }
-  100% {
-    transform: translateY(-85px) translateX(4px);
-    opacity: 0;
-  }
+  0%   { transform: translate(0px, 0px) scale(1); }
+  20%  { transform: translate(6px, -18px) scale(1.08); }
+  40%  { transform: translate(-4px, -32px) scale(0.95); }
+  60%  { transform: translate(10px, -22px) scale(1.05); }
+  80%  { transform: translate(-6px, -38px) scale(1.02); }
+  100% { transform: translate(0px, 0px) scale(1); }
 }
