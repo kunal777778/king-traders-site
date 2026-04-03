@@ -232,6 +232,13 @@ export default function HomePage() {
 
       {/* ========== COAL SHOWCASE ========== */}
       <section className={`section ${styles.showcaseSection}`}>
+        {/* Video background for showcase */}
+        <div className={styles.showcaseVideoBg}>
+          <video autoPlay muted loop playsInline preload="auto" className={styles.showcaseBgVideo}>
+            <source src="/coal-showcase.mp4" type="video/mp4" />
+          </video>
+          <div className={styles.showcaseBgOverlay} />
+        </div>
         <div className={styles.sectionGlow} />
         <div className="container">
           <AnimatedSection>
@@ -362,12 +369,9 @@ export default function HomePage() {
       {/* ========== CTA ========== */}
       <section className={`section ${styles.ctaSection}`}>
         <div className={styles.ctaBgImage}>
-          <Image
-            src="/coal-hero.png"
-            alt=""
-            fill
-            className={styles.ctaBgImg}
-          />
+          <video autoPlay muted loop playsInline preload="auto" className={styles.ctaBgImg}>
+            <source src="/coal-cta.mp4" type="video/mp4" />
+          </video>
           <div className={styles.ctaBgOverlay} />
         </div>
         <AnimatedSection>

@@ -510,8 +510,40 @@
 
 /* ========== COAL SHOWCASE ========== */
 .showcaseSection {
-  background: var(--color-bg-section);
+  position: relative;
   overflow: hidden;
+}
+
+.showcaseVideoBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.showcaseBgVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.12;
+}
+
+.showcaseBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 6, 16, 0.92) 0%,
+    rgba(10, 10, 26, 0.80) 50%,
+    rgba(6, 6, 16, 0.92) 100%
+  );
+}
+
+/* Ensure section content sits above video */
+.showcaseSection > .sectionGlow,
+.showcaseSection > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .showcaseGrid {
@@ -774,8 +806,13 @@
 }
 
 .ctaBgImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  filter: brightness(0.18) saturate(0.4);
+  object-position: center;
+  opacity: 0.35;
 }
 
 .ctaBgOverlay {
