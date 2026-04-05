@@ -37,12 +37,7 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <motion.header
-      className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}
-      initial={{ y: -100, x: '-50%' }}
-      animate={{ y: 0, x: '-50%' }}
-      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-    >
+    <header className={`${styles.header} ${styles.headerAnimate} ${scrolled ? styles.scrolled : ''}`}>
       <nav className={`${styles.nav} container`}>
         <Link href="/" className={styles.logo} aria-label="King Traders Home">
           <Image
@@ -126,6 +121,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }
