@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ScrollProgress from '@/components/ScrollProgress';
 import PageTransition from '@/components/PageTransition';
-import CustomCursor from '@/components/CustomCursor';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -199,7 +198,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <CustomCursor />
+        
         <ScrollProgress />
         <Navbar />
         <PageTransition>

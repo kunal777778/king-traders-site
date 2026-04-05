@@ -7,20 +7,20 @@ import styles from './CoalGallery.module.css';
 
 const slides = [
   {
-    src: '/coal-chunks.jpg',
-    alt: 'Premium USA high GCV thermal coal chunks',
+    src: '/coal-mining.png',
+    alt: 'Premium USA high GCV thermal coal mining operations',
     caption: 'Premium Coal Quality',
     sub: 'High GCV USA thermal coal — 6900+ kcal/kg NAR',
   },
   {
-    src: '/coal-port.jpg',
-    alt: 'Large scale coal stockpile at port with excavators',
+    src: '/coal-hero.png',
+    alt: 'Large scale coal supply and stockpile',
     caption: 'Massive Supply Capacity',
     sub: 'Direct import from USA mines to Nepal',
   },
   {
-    src: '/coal-trucks.jpg',
-    alt: 'Coal dump trucks unloading at mine site',
+    src: '/coal-product.png',
+    alt: 'Coal product ready for delivery to industry',
     caption: 'Reliable Logistics',
     sub: 'End-to-end supply chain management',
   },
