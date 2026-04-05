@@ -1,8 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import AnimatedSection from '@/components/AnimatedSection';
 import styles from './page.module.css';
+
+// 3D tilt on mouse move — runs purely in CSS transform, zero deps
+function useTilt() {
+  const onMouseMove = useCallback((e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const rotX = ((y - cy) / cy) * -5;   // ±5deg
+    const rotY = ((x - cx) / cx) * 5;
+    card.style.transform = `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+  }, []);
+
+  const onMouseLeave = useCallback((e) => {
+    e.currentTarget.style.transform = '';
+  }, []);
+
+  return { onMouseMove, onMouseLeave };
+}
 
 
 const contactInfo = [
@@ -41,6 +62,7 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
+  const tilt = useTilt();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -170,7 +192,7 @@ export default function ContactPage() {
 
                 <div className={styles.infoCards}>
                   {contactInfo.map((c) => (
-                    <div key={c.title} className={styles.infoCard}>
+                    <div key={c.title} className={styles.infoCard} onMouseMove={tilt.onMouseMove} onMouseLeave={tilt.onMouseLeave}>
                       <div className={styles.infoIcon}>{c.icon}</div>
                       <div>
                         <span className={styles.infoTitle}>{c.title}</span>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import CountUp from '@/components/CountUp';
+import CoalDustCanvas from '@/components/CoalDustCanvas';
 import styles from '@/app/page.module.css';
 
 const FULL_TEXT =
@@ -66,6 +67,8 @@ export default function HeroClient() {
           </video>
         </motion.div>
         <div className={styles.videoOverlay} />
+        {/* Coal dust atmosphere — Physics-Notebook BaseVisual pattern */}
+        <CoalDustCanvas />
       </div>
 
       <div className={`container ${styles.heroContent}`}>

@@ -110,7 +110,18 @@
 
 .formGroup input:focus,
 .formGroup textarea:focus {
-  border-color: var(--color-gold);
+  border-color: rgba(212, 168, 67, 0.75);
+  box-shadow:
+    0 0 0 3px rgba(212, 168, 67, 0.12),
+    0 0 24px rgba(212, 168, 67, 0.08),
+    inset 0 1px 0 rgba(212, 168, 67, 0.06);
+  background: rgba(212, 168, 67, 0.03);
+}
+
+/* Label glows when field is focused */
+.formGroup:focus-within label {
+  color: rgba(212, 168, 67, 0.85);
+  transition: color 0.25s;
 }
 
 .submitBtn {
@@ -144,11 +155,16 @@
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
+  transition: all 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: default;
 }
 
 .infoCard:hover {
-  border-color: var(--color-border-hover);
+  border-color: rgba(212, 168, 67, 0.35);
+  background: rgba(212, 168, 67, 0.04);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(212, 168, 67, 0.1);
 }
 
 .infoIcon {

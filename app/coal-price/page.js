@@ -1,4 +1,5 @@
 import AnimatedSection from '@/components/AnimatedSection';
+import TerminalTable from '@/components/TerminalTable';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -124,32 +125,7 @@ export default function CoalPricePage() {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection>
-            <div className={styles.gradeTable}>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Coal Type</th>
-                    <th>Origin</th>
-                    <th>GCV (NAR)</th>
-                    <th>Ash</th>
-                    <th>Sulphur</th>
-                    <th>Pricing</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>USA High GCV Coal</strong></td>
-                    <td>USA</td>
-                    <td className={styles.goldVal}>6900+</td>
-                    <td>7–8%</td>
-                    <td>2–3%</td>
-                    <td><span className={styles.onRequest}>On Request</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </AnimatedSection>
+          <TerminalTable />
 
           <AnimatedSection delay={0.15}>
             <p className={styles.gradeNote}>

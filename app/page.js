@@ -5,6 +5,8 @@ import HeroClient from '@/components/HeroClient';
 import CountUp from '@/components/CountUp';
 import ScrollRevealText from '@/components/ScrollRevealText';
 import StickyProcess from '@/components/StickyProcess';
+import StatsTicker from '@/components/StatsTicker';
+import CoalGallery from '@/components/CoalGallery';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -118,24 +120,20 @@ const faqs = [
   },
   {
     q: 'What payment terms do you offer?',
-    a: 'We accept advance payment and partial advance with balance on delivery. For established long-term clients, credit arrangements are available after the initial orders.',
+    a: 'We accept advance payment and partial advance with balance on delivery. For long-term clients, credit arrangements are available after the initial orders.',
   },
   {
     q: 'Which areas of Nepal do you serve?',
-    a: 'We currently supply across Koshi Province and Madhesh Province — including Biratnagar, Morang, Sunsari, Jhapa, Saptari, and surrounding districts. Supply to other regions is available on request.',
+    a: 'We currently supply across Koshi Province and Madhesh Province — including Biratnagar, Morang, Sunsari, Jhapa, Saptari, and surrounding districts.',
   },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* ========== HERO ========== */}
       <HeroClient />
-
-      {/* Divider */}
+      <StatsTicker />
       <div className={styles.sectionDivider} />
-
-      {/* ========== SERVICES ========== */}
       <section className={`section ${styles.servicesSection}`}>
         <div className={styles.sectionGlow} />
         <div className="container">
@@ -147,7 +145,6 @@ export default function HomePage() {
               <p>From sourcing to delivery, we maintain the highest standards at every step</p>
             </div>
           </AnimatedSection>
-
           <div className="grid-3">
             {services.map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.12}>
@@ -162,23 +159,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Divider */}
       <div className={styles.sectionDivider} />
-
-      {/* ========== ABOUT PREVIEW ========== */}
       <section className={`section ${styles.aboutSection}`}>
         <div className="container">
           <div className={styles.aboutGrid}>
             <AnimatedSection direction="left">
               <div className={styles.aboutImage}>
-                <Image
-                  src="/coal-mining.png"
-                  alt="Coal mining operations — King Traders supply chain"
-                  width={560}
-                  height={560}
-                  className={styles.aboutImg}
-                />
+                <Image src="/coal-mining.png" alt="Coal mining operations" width={560} height={560} className={styles.aboutImg} />
                 <div className={styles.aboutImageOverlay} />
                 <div className={styles.aboutImageBadge}>
                   <span className={styles.aboutBadgeNumber}>7+</span>
@@ -186,210 +173,60 @@ export default function HomePage() {
                 </div>
               </div>
             </AnimatedSection>
-
             <AnimatedSection direction="right">
               <div className={styles.aboutContent}>
                 <div className="badge">About Us</div>
                 <h2>Your Reliable Coal Supply Partner in Nepal</h2>
                 <div className="gold-line gold-line-left" />
-                <p>
-                  King Traders &amp; Suppliers has been serving Nepal&apos;s energy needs since 2019.
-                  Based in Biratnagar, Morang, we are dedicated importers and suppliers of
-                  premium quality coal sourced from the USA.
-                </p>
-                <p>
-                  With 30+ satisfied clients including brick kilns and industrial buyers across
-                  Nepal, we&apos;ve built our reputation on quality, reliability, and competitive pricing.
-                </p>
+                <p>King Traders &amp; Suppliers has been serving Nepal&apos;s energy needs since 2019. Based in Biratnagar, Morang.</p>
+                <p>With 30+ satisfied clients including brick kilns and industrial buyers across Nepal.</p>
                 <div className={styles.aboutStats}>
-                  <div className={styles.aboutStat}>
-                    <span className={styles.aboutStatNum}><CountUp value="30+" duration={1600} /></span>
-                    <span className={styles.aboutStatLabel}>Happy Clients</span>
-                  </div>
+                  <div className={styles.aboutStat}><span className={styles.aboutStatNum}><CountUp value="30+" duration={1600} /></span><span className={styles.aboutStatLabel}>Happy Clients</span></div>
                   <div className={styles.aboutStatDivider} />
-                  <div className={styles.aboutStat}>
-                    <span className={styles.aboutStatNum}><CountUp value="6900+" duration={2000} /></span>
-                    <span className={styles.aboutStatLabel}>GCV NAR</span>
-                  </div>
+                  <div className={styles.aboutStat}><span className={styles.aboutStatNum}><CountUp value="6900+" duration={2000} /></span><span className={styles.aboutStatLabel}>GCV NAR</span></div>
                   <div className={styles.aboutStatDivider} />
-                  <div className={styles.aboutStat}>
-                    <span className={styles.aboutStatNum}><CountUp value="24/7" /></span>
-                    <span className={styles.aboutStatLabel}>Support</span>
-                  </div>
+                  <div className={styles.aboutStat}><span className={styles.aboutStatNum}><CountUp value="24/7" /></span><span className={styles.aboutStatLabel}>Support</span></div>
                 </div>
-                <Link href="/about" className="btn btn-outline" style={{ marginTop: '1.5rem' }}>
-                  Learn More About Us
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </Link>
+                <Link href="/about" className="btn btn-outline" style={{ marginTop: '1.5rem' }}>Learn More About Us <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link>
               </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
-
-      {/* Divider */}
       <div className={styles.sectionDivider} />
-
-      {/* ========== COAL SHOWCASE ========== */}
       <section className={`section ${styles.showcaseSection}`}>
-        {/* Video background for showcase */}
         <div className={styles.showcaseVideoBg}>
-          <video autoPlay muted loop playsInline preload="auto" className={styles.showcaseBgVideo}>
-            <source src="/coal-showcase.mp4" type="video/mp4" />
-          </video>
+          <video autoPlay muted loop playsInline preload="auto" className={styles.showcaseBgVideo}><source src="/coal-showcase.mp4" type="video/mp4" /></video>
           <div className={styles.showcaseBgOverlay} />
         </div>
         <div className={styles.sectionGlow} />
         <div className="container">
-          <AnimatedSection>
-            <div className="section-header">
-              <div className="badge">Our Product</div>
-              <h2>Premium High GCV Coal</h2>
-              <div className="gold-line" />
-              <p>Sourced from the finest mines, delivered to your doorstep</p>
-            </div>
-          </AnimatedSection>
-
+          <AnimatedSection><div className="section-header"><div className="badge">Our Product</div><h2>Premium High GCV Coal</h2><div className="gold-line" /><p >Sourced from the finest mines, delivered to your doorstep</p></div></AnimatedSection>
           <div className={styles.showcaseGrid}>
-            <AnimatedSection delay={0.1}>
-              <div className={styles.showcaseCard}>
-                <div className={styles.showcaseImgWrap}>
-                  <Image
-                    src="/coal-hero.png"
-                    alt="Premium high GCV thermal coal — USA origin coal for brick kilns Nepal"
-                    width={600}
-                    height={400}
-                    className={styles.showcaseImg}
-                  />
-                  <div className={styles.showcaseImgOverlay} />
-                  <div className={styles.showcaseBadge}>USA Origin</div>
-                </div>
-                <div className={styles.showcaseCardContent}>
-                  <h3>USA High GCV Coal</h3>
-                  <p>6900+ NAR with superior calorific value for maximum energy output</p>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className={styles.showcaseCard}>
-                <div className={styles.showcaseImgWrap}>
-                  <Image
-                    src="/coal-product.png"
-                    alt="Quality-tested thermal coal batch — lab certified coal Nepal"
-                    width={600}
-                    height={400}
-                    className={styles.showcaseImg}
-                  />
-                  <div className={styles.showcaseImgOverlay} />
-                  <div className={styles.showcaseBadge}>Lab Certified</div>
-                </div>
-                <div className={styles.showcaseCardContent}>
-                  <h3>Quality Tested</h3>
-                  <p>Lab reports and analysis certificates available for every batch</p>
-                </div>
-              </div>
-            </AnimatedSection>
+            <AnimatedSection delay={0.1}><div className={styles.showcaseCard}><div className={styles.showcaseImgWrap}><Image src="/coal-hero.png" alt="USA origin coal" width={600} height={400} className={styles.showcaseImg} /><div className={styles.showcaseImgOverlay} /><div className={styles.showcaseBadge}>USA Origin</div></div><div className={styles.showcaseCardContent}><h3>USA High GCV Coal</h3><p>6900+ NAR with superior calorific value</p></div></div></AnimatedSection>
+            <AnimatedSection delay={0.2}><div className={styles.showcaseCard}><div className={styles.showcaseImgWrap}><Image src="/coal-product.png" alt="Lab certified coal" width={600} height={400} className={styles.showcaseImg} /><div className={styles.showcaseImgOverlay} /><div className={styles.showcaseBadge}>Lab Certified</div></div><div className={styles.showcaseCardContent}><h3>Quality Tested</h3><p >Lab reports available for every batch</p></div></div></AnimatedSection>
           </div>
         </div>
       </section>
-
-      {/* ========== HOW WE WORK (sticky scroll) ========== */}
       <StickyProcess />
-
-      {/* ========== INDUSTRIES ========== */}
       <section className={`section ${styles.industriesSection}`}>
         <div className="container">
-          <AnimatedSection>
-            <div className="section-header">
-              <div className="badge">Industries We Serve</div>
-              <ScrollRevealText text="Powering Nepal's Key Industries" />
-              <div className="gold-line" />
-              <p>Supplying reliable coal to the sectors that keep Nepal moving</p>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid-4">
-            {industries.map((ind, i) => (
-              <AnimatedSection key={ind.name} delay={i * 0.1}>
-                <div className={styles.industryCard}>
-                  <div className={styles.industryIconWrap}>{ind.icon}</div>
-                  <h4>{ind.name}</h4>
-                  <p>{ind.desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+          <AnimatedSection><div className="section-header"><div className="badge">Industries We Serve</div><ScrollRevealText text="Powering Nepal's Key Industries" /><div className="gold-line" /><p>Supplying reliable coal to the sectors that keep Nepal moving</p></div></AnimatedSection>
+          <div className="grid-4">{industries.map((ind, i) => (<AnimatedSection key={ind.name} delay={i * 0.1}><div className={styles.industryCard}><div className={styles.industryIconWrap}>{ind.icon}</div><h4>{ind.name}</h4><p>{ind.desc}</p></div></AnimatedSection>))}</div>
         </div>
       </section>
-
-      {/* ========== FAQ ========== */}
+      <CoalGallery />
       <section className={`section ${styles.faqSection}`}>
         <div className={styles.sectionGlow} />
         <div className="container">
-          <AnimatedSection>
-            <div className="section-header">
-              <div className="badge">FAQ</div>
-              <h2>Frequently Asked Questions</h2>
-              <div className="gold-line" />
-              <p>Everything you need to know before placing your first order</p>
-            </div>
-          </AnimatedSection>
-
-          <div className={styles.faqGrid}>
-            {faqs.map((faq, i) => (
-              <AnimatedSection key={i} delay={i * 0.07}>
-                <details className={styles.faqItem}>
-                  <summary className={styles.faqQuestion}>
-                    <span>{faq.q}</span>
-                    <span className={styles.faqIcon}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M6 9l6 6 6-6"/>
-                      </svg>
-                    </span>
-                  </summary>
-                  <p className={styles.faqAnswer}>{faq.a}</p>
-                </details>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          <AnimatedSection delay={0.3}>
-            <div className={styles.faqCta}>
-              <p>Still have questions? We&apos;re happy to help.</p>
-              <Link href="/contact" className="btn btn-outline">
-                Ask Us Directly
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </Link>
-            </div>
-          </AnimatedSection>
+          <AnimatedSection><div className="section-header"><div className="badge">FAQ</div><h2>Frequently Asked Questions</h2><div className="gold-line" /><p>Everything you need to know before placing your first order</p></div></AnimatedSection>
+          <div className={styles.faqGrid}>{faqs.map((faq, i) => (<AnimatedSection key={i} delay={i * 0.07}><details className={styles.faqItem}><summary className={styles.faqQuestion}><span>{faq.q}</span><span className={styles.faqIcon}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary><p className={styles.faqAnswer}>{faq.a}</p></details></AnimatedSection>))}</div>
+          <AnimatedSection delay={0.3}><div className={styles.faqCta}><p >Still have questions? We're happy to help.</p><Link href="/contact" className="btn btn-outline">Ask Us Directly <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link></div></AnimatedSection>
         </div>
       </section>
-
-      {/* ========== CTA ========== */}
       <section className={`section ${styles.ctaSection}`}>
-        <div className={styles.ctaBgImage}>
-          <video autoPlay muted loop playsInline preload="auto" className={styles.ctaBgImg}>
-            <source src="/coal-cta.mp4" type="video/mp4" />
-          </video>
-          <div className={styles.ctaBgOverlay} />
-        </div>
-        <AnimatedSection>
-          <div className={`container ${styles.ctaContent}`}>
-            <div className={styles.ctaGlow} />
-            <h2>Ready to Secure Your Coal Supply?</h2>
-            <p>Get in touch today for competitive quotes tailored to your requirements.</p>
-            <div className={styles.ctaBtns}>
-              <Link href="/contact" className="btn btn-primary">
-                Contact Us Now
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </Link>
-              <a href="https://wa.me/9779819322029" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-                WhatsApp Us
-              </a>
-            </div>
-          </div>
-        </AnimatedSection>
+        <div className={styles.ctaBgImage}><video autoPlay muted loop playsInline preload="auto" className={styles.ctaBgImg}><source src="/coal-cta.mp4" type="video/mp4" /></video><div className={styles.ctaBgOverlay} /></div>
+        <AnimatedSection><div className={`container ${styles.ctaContent}`}><div className={styles.ctaGlow} /><h2>Ready to Secure Your Coal Supply?</h2><p >Get in touch today for competitive quotes.</p><div className={styles.ctaBtns}><Link href="/contact" className="btn btn-primary">Contact Us Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link><a href="https://wa.me/9779819322029" target="_blank" rel="noopener noreferrer" className="btn btn-outline">WhatsApp Us</a></div></div></AnimatedSection>
       </section>
     </>
   );

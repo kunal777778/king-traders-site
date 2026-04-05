@@ -104,6 +104,17 @@
   border-bottom: none;
 }
 
+.specsTable tr {
+  transition: background 0.3s ease, border-left 0.3s ease, box-shadow 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.specsTable tr:hover {
+  background: rgba(212, 168, 67, 0.1);
+  box-shadow: inset 0 0 10px rgba(212, 168, 67, 0.2);
+  border-left-color: var(--color-gold);
+}
+
 .highlightRow {
   background: rgba(212, 168, 67, 0.04);
 }
@@ -153,27 +164,86 @@
   color: var(--color-gold);
 }
 
-/* ========== APPLICATIONS ========== */
+/* ========== APPLICATIONS (Expanding Accordion) ========== */
 .applicationsSection {
   background: var(--color-bg-section);
 }
 
-.appCard {
-  text-align: center;
+.expandingGrid {
+  display: flex;
+  height: 380px;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.expandingItem {
+  flex: 1;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: var(--space-lg);
+  cursor: pointer;
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.expandingItem:hover {
+  flex: 3;
+  background: rgba(212, 168, 67, 0.05); /* Gold tint */
+  border-color: rgba(212, 168, 67, 0.4);
+  box-shadow: inset 0 0 40px rgba(212, 168, 67, 0.1);
+}
+
+.expandingHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.expandingItem:hover .expandingHeader {
+  transform: translateY(-30px);
 }
 
 .appIcon {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   display: block;
   margin-bottom: var(--space-sm);
+  transition: transform 0.4s ease;
 }
 
-.appCard h4 {
-  margin-bottom: var(--space-xs);
+.expandingItem:hover .appIcon {
+  transform: scale(1.1);
 }
 
-.appCard p {
+.expandingItem h4 {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.expandingContent {
+  opacity: 0;
+  max-width: 90%;
+  text-align: center;
+  position: absolute;
+  top: 60%;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+.expandingItem:hover .expandingContent {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.expandingContent p {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   margin: 0 auto;
@@ -219,5 +289,12 @@
   }
   .heroDesc {
     margin: 0 auto;
+  }
+  .expandingGrid {
+    flex-direction: column;
+    height: 600px;
+  }
+  .expandingItem:hover .expandingHeader {
+    transform: translateY(-20px);
   }
 }

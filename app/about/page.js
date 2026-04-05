@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
+import AnimatedTimeline from '@/components/AnimatedTimeline';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -171,19 +172,7 @@ export default function AboutPage() {
             </div>
           </AnimatedSection>
 
-          <div className={styles.timeline}>
-            {milestones.map((m, i) => (
-              <AnimatedSection key={m.year} delay={i * 0.12}>
-                <div className={styles.timelineItem}>
-                  <div className={styles.timelineDot} />
-                  <div className={styles.timelineCard}>
-                    <span className={styles.timelineYear}>{m.year}</span>
-                    <p>{m.event}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+          <AnimatedTimeline milestones={milestones} />
         </div>
       </section>
     </>

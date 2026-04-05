@@ -1,0 +1,203 @@
+.terminal {
+  background: #0a0a0f;
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 24px 48px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(212, 168, 67, 0.04);
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ─── Header bar ─── */
+.termHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.windowDots {
+  display: flex;
+  gap: 6px;
+}
+
+.dotR,
+.dotY,
+.dotG {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dotR { background: #ff5f57; }
+.dotY { background: #ffbd2e; }
+.dotG { background: #27c93f; }
+
+.termTitle {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.termBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #27c93f;
+  background: rgba(39, 201, 63, 0.12);
+  border: 1px solid rgba(39, 201, 63, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 100px;
+}
+
+/* ─── Body ─── */
+.termBody {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cmdLine {
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+}
+
+.prompt {
+  color: #27c93f;
+  font-weight: 700;
+}
+
+.cmd {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.separator {
+  height: 1px;
+  background: rgba(212, 168, 67, 0.18);
+  margin-bottom: 1rem;
+  transform-origin: left;
+}
+
+/* ─── Data rows ─── */
+.row {
+  display: grid;
+  grid-template-columns: 180px 24px 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.row:last-of-type {
+  border-bottom: none;
+}
+
+.rowGold {
+  background: rgba(212, 168, 67, 0.04);
+  border-radius: 4px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-bottom-color: rgba(212, 168, 67, 0.1);
+}
+
+.rowKey {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+.arrow {
+  font-size: 0.85rem;
+  color: rgba(212, 168, 67, 0.4);
+}
+
+.rowVal {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.rowValGold {
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 1rem;
+  text-shadow: 0 0 16px rgba(212, 168, 67, 0.3);
+}
+
+/* Gold shimmer sweep on highlighted rows */
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 168, 67, 0.15),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* ─── Blinking cursor ─── */
+.cursor {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.blinkCursor {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+}
+
+/* ─── Footer ─── */
+.termFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: var(--font-body);
+}
+
+.footerDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #27c93f;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(39, 201, 63, 0.5);
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 130px 18px 1fr;
+    font-size: 0.8rem;
+  }
+  .termBody {
+    padding: 1.25rem 1rem;
+  }
+}

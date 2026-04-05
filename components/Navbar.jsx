@@ -39,8 +39,8 @@ export default function Navbar() {
   return (
     <motion.header
       className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -100, x: '-50%' }}
+      animate={{ y: 0, x: '-50%' }}
       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
     >
       <nav className={`${styles.nav} container`}>
